@@ -17,5 +17,5 @@ export const useTestStore = defineStore(
   },
   {
     persist: true, // 持久化
-  },
+  }
 )
