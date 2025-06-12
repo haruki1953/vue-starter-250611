@@ -20,6 +20,8 @@ coverage
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+# 自己觉得settings也加入git比较好
+!.vscode/settings.json
 .idea
 *.suo
 *.ntvs*

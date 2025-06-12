@@ -8,10 +8,14 @@ pnpm dev
 
 ## pinia持久化
 
+## tailwindcss
+
 ## element-plus
 
 ## naive-ui
 （暂不尝试）
+
+
 
 ## RemixIcon
 

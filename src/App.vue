@@ -8,8 +8,16 @@ const testStore = useTestStore()
 
 <template>
   <header>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
     {{ testStore.testVal }}
-    <img @click="testStore.testValAdd()" alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      height="125"
+      width="125"
+      @click="testStore.testValAdd()"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />

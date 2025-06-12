@@ -1,7 +1,14 @@
 import { globalIgnores } from 'eslint/config'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import {
+  defineConfigWithVueTs,
+  vueTsConfigs,
+} from '@vue/eslint-config-typescript'
 import pluginVue from 'eslint-plugin-vue'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+
+import eslintPluginPrettier from 'eslint-plugin-prettier'
+import vueEslintParser from 'vue-eslint-parser'
+// pnpm install --save-dev eslint-plugin-prettier vue-eslint-parser
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'
@@ -20,6 +27,22 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   skipFormatting,
   {
+    ignores: ['postcss.config.js', 'tailwind.config.js'],
+    plugins: {
+      prettier: eslintPluginPrettier,
+      // '@typescript-eslint': eslintPluginTs
+    },
+    languageOptions: {
+      // @typescript-eslint/strict-boolean-expressions 所需
+      parser: vueEslintParser,
+      parserOptions: {
+        parser: '@typescript-eslint/parser', // vue-eslint-parser 转发给 ts 解析器
+        project: './tsconfig.json', // 必须指定 tsconfig.json 路径，开启类型信息
+        extraFileExtensions: ['.vue'],
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+    },
     rules: {
       // Standard 风格核心部分
       semi: ['error', 'never'],
@@ -92,9 +115,25 @@ export default defineConfigWithVueTs(
       // 关闭单一根元素限制（适用于 Vue 3 及以上）
       'vue/no-multiple-template-root': 'off',
       // 未使用值警告
-      '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { varsIgnorePattern: '^_' },
+      ],
       // 空行控制
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      // 规范属性顺序
+      'vue/attributes-order': 'warn',
+      // prettier 自己习惯的配置
+      'prettier/prettier': [
+        'warn',
+        {
+          singleQuote: true, // 单引号
+          semi: false, // 无分号
+          printWidth: 80, // 每行宽度至多80字符
+          // trailingComma: 'none', // 不加对象|数组最后逗号
+          endOfLine: 'auto', // 换行符号不限制（win mac 不一致）
+        },
+      ],
     },
-  },
+  }
 )
