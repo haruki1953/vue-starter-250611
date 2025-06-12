@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { useTestStore } from './stores'
+import { RiHeartFill } from '@remixicon/vue'
 
 const testStore = useTestStore()
 
@@ -16,6 +17,9 @@ const buttons = [
 </script>
 
 <template>
+  <RiHeartFill size="36px" color="red" className="my-icon" />
+  <i class="ri-admin-line"></i>
+  <i class="ri-admin-fill"></i>
   <div class="mb-4">
     <ElButton>Default</ElButton>
     <ElButton type="primary">Primary</ElButton>

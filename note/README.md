@@ -16,5 +16,6 @@ pnpm dev
 （暂不尝试）
 
 ## RemixIcon
+pnpm install @remixicon/vue
 
 ## 国际化
