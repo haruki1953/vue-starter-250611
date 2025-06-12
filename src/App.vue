@@ -3,6 +3,8 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import { useTestStore } from './stores'
 import { RiHeartFill } from '@remixicon/vue'
+import { i18nLocaleInfo, i18nLocaleList } from './config'
+import { useI18nStore } from './stores'
 
 const testStore = useTestStore()
 
@@ -14,9 +16,21 @@ const buttons = [
   { type: 'warning', text: 'warning' },
   { type: 'danger', text: 'danger' },
 ] as const
+
+const i18nStore = useI18nStore()
 </script>
 
 <template>
+  {{ i18nStore.t('pageHome')() }}
+  <div>
+    <ElButton
+      v-for="key in i18nLocaleList"
+      :key="key"
+      @click="i18nStore.localeSet(key)"
+    >
+      {{ `${i18nLocaleInfo[key].language}(${i18nLocaleInfo[key].region})` }}
+    </ElButton>
+  </div>
   <RiHeartFill size="36px" color="red" className="my-icon" />
   <i class="ri-admin-line"></i>
   <i class="ri-admin-fill"></i>
