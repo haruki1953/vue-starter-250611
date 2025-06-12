@@ -111,6 +111,15 @@ export default defineConfigWithVueTs(
       'vue/no-v-html': 'off',
       // 组件参数不用连字符命名，用小驼峰命名
       'vue/attribute-hyphenation': ['warn', 'never'],
+      // 组件名大驼峰
+      'vue/component-name-in-template-casing': [
+        'warn',
+        'PascalCase',
+        {
+          registeredComponentsOnly: false,
+          ignores: [],
+        },
+      ],
       // 关闭 Vue 组件的自闭合标签检查，允许 <img> 和 <br> 等标签不使用自闭合写法
       'vue/html-self-closing': 'off',
       // 关闭单一根元素限制（适用于 Vue 3 及以上）
