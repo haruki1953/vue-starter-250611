@@ -27,6 +27,7 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   skipFormatting,
   {
+    // 有报错但实际上无所谓，让eslint忽略即可
     ignores: ['postcss.config.js', 'tailwind.config.js'],
     plugins: {
       prettier: eslintPluginPrettier,
@@ -132,6 +133,10 @@ export default defineConfigWithVueTs(
           printWidth: 80, // 每行宽度至多80字符
           // trailingComma: 'none', // 不加对象|数组最后逗号
           endOfLine: 'auto', // 换行符号不限制（win mac 不一致）
+          plugins: [
+            // 规范 tailwindcss 类名顺序
+            'prettier-plugin-tailwindcss',
+          ],
         },
       ],
     },
