@@ -19,3 +19,6 @@ pnpm dev
 pnpm install @remixicon/vue
 
 ## 国际化
+
+## vueuse unhead 
+pnpm i @vueuse/core @unhead/vue

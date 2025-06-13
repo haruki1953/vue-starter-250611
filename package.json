@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@remixicon/vue": "^4.6.0",
+    "@unhead/vue": "^2.0.10",
+    "@vueuse/core": "^13.3.0",
     "element-plus": "^2.10.1",
     "pinia": "^3.0.1",
     "pinia-plugin-persistedstate": "^4.3.0",

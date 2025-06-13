@@ -5,6 +5,20 @@ import { useTestStore } from './stores'
 import { RiHeartFill } from '@remixicon/vue'
 import { i18nLocaleInfo, i18nLocaleList } from './config'
 import { useI18nStore } from './stores'
+import { useDark } from '@vueuse/core'
+import { computed } from 'vue'
+
+const i18nStore = useI18nStore()
+
+// @unhead/vue
+useHead({
+  htmlAttrs: { lang: computed(() => i18nStore.locale) }, // BCP 47 language code
+})
+useSeoMeta({
+  title: 'App',
+  titleTemplate: '%s - Vue',
+  description: 'Learn about our awesome site.',
+})
 
 const testStore = useTestStore()
 
@@ -17,10 +31,13 @@ const buttons = [
   { type: 'danger', text: 'danger' },
 ] as const
 
-const i18nStore = useI18nStore()
+const isDark = useDark()
 </script>
 
 <template>
+  <div class="mb-4">
+    <ElButton @click="isDark = !isDark"> isDark </ElButton>
+  </div>
   <!-- ElConfigProvider 国际化设置 -->
   <ElConfigProvider :locale="i18nLocaleInfo[i18nStore.locale].elLocale">
     <ElTimePicker />

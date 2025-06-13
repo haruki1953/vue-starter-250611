@@ -13,15 +13,17 @@ export const useI18nStore = defineStore(
     // type I18nLocaleType = "en-US" | "zh-CN" | "zh-TW" ……
     const locale = ref<I18nLocaleType>(i18nDefaultLocale)
 
-    // 初始化 html 的 lang 属性
-    onMounted(() => {
-      document.documentElement.lang = locale.value
-    })
+    // 在app.vue使用usehead更好
+    // // 初始化 html 的 lang 属性
+    // onMounted(() => {
+    //   document.documentElement.lang = locale.value
+    // })
 
     const localeSet = (code: I18nLocaleType) => {
       locale.value = code
-      // 更新 html 的 lang 属性
-      document.documentElement.lang = locale.value
+      // 在app.vue使用usehead更好
+      // // 更新 html 的 lang 属性
+      // document.documentElement.lang = locale.value
     }
 
     // 好多i18n库都用t命名，来获取语言内容
