@@ -1,7 +1,16 @@
 // 导入element-plus的国际化配置（将控制某些组件如时间选择器的语言）
-import enUs from 'element-plus/es/locale/lang/en'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import zhTw from 'element-plus/es/locale/lang/zh-tw'
+import elEnUS from 'element-plus/es/locale/lang/en'
+import elZhCN from 'element-plus/es/locale/lang/zh-cn'
+import elZhTW from 'element-plus/es/locale/lang/zh-tw'
+
+import {
+  enUS as nuEnUS,
+  dateEnUS as nuDateEnUS,
+  zhCN as nuZhCN,
+  dateZhCN as nuDateZhCN,
+  zhTW as nuZhTW,
+  dateZhTW as nuDateZhTW,
+} from 'naive-ui'
 
 // 当前所支持的语言，格式：(ISO 639-1)-(Country Code)
 export const i18nLocaleList = ['en-US', 'zh-CN', 'zh-TW'] as const
@@ -14,17 +23,23 @@ export const i18nLocaleInfo = {
   'en-US': {
     language: 'English',
     region: 'USA',
-    elLocale: enUs,
+    elLocale: elEnUS,
+    nuLocale: nuEnUS,
+    nuDateLocale: nuDateEnUS,
   },
   'zh-CN': {
     language: '简体中文',
     region: '中国',
-    elLocale: zhCn,
+    elLocale: elZhCN,
+    nuLocale: nuZhCN,
+    nuDateLocale: nuDateZhCN,
   },
   'zh-TW': {
     language: '繁體中文',
     region: '台灣',
-    elLocale: zhTw,
+    elLocale: elZhTW,
+    nuLocale: nuZhTW,
+    nuDateLocale: nuDateZhTW,
   },
 } as const satisfies Record<
   // 确保类型正确
@@ -32,7 +47,9 @@ export const i18nLocaleInfo = {
   {
     language: string
     region: string
-    elLocale: typeof enUs | typeof zhCn | typeof zhTw
+    elLocale: typeof elEnUS | typeof elZhCN | typeof elZhTW
+    nuLocale: typeof nuEnUS | typeof nuZhCN | typeof nuZhTW
+    nuDateLocale: typeof nuDateEnUS | typeof nuDateZhCN | typeof nuDateZhTW
   }
 >
 
