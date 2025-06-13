@@ -22,3 +22,6 @@ pnpm install @remixicon/vue
 
 ## vueuse unhead 
 pnpm i @vueuse/core @unhead/vue
+
+## 完善 index.html app.vue
+嵌入样式，加载动画

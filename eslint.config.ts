@@ -148,6 +148,13 @@ export default defineConfigWithVueTs(
           ],
         },
       ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports', // `import type`
+          fixStyle: 'separate-type-imports', // 让 ESLint 自动修复
+        },
+      ],
     },
   }
 )
