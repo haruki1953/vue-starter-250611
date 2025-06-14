@@ -98,12 +98,12 @@ export default defineConfigWithVueTs(
       // 禁止 function 声明出现在嵌套块中（避免提升问题）
       'no-inner-declarations': ['error', 'functions'],
 
-      // 'vue/multi-word-component-names': [
-      //   'warn',
-      //   {
-      //     ignores: ['index'] // vue组件名称多单词组成（忽略index.vue）
-      //   }
-      // ],
+      'vue/multi-word-component-names': [
+        'warn',
+        {
+          ignores: ['index'], // vue组件名称多单词组成（忽略index.vue）
+        },
+      ],
       'vue/no-setup-props-destructure': ['off'], // 关闭 props 解构的校验
       // 未定义变量错误提示
       // 'no-undef': 'error',

@@ -32,7 +32,15 @@ export default defineConfig({
       ],
     }),
     Components({
-      resolvers: [ElementPlusResolver(), NaiveUiResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        NaiveUiResolver(),
+        (name) => {
+          if (name.startsWith('Ri')) {
+            return { name, from: '@remixicon/vue' }
+          }
+        },
+      ],
     }),
   ],
   resolve: {

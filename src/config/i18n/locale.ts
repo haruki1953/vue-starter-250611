@@ -75,37 +75,3 @@ export const i18nDefaultLocale: I18nLocaleType = (() => {
   }
   return i18nfallbackLocale
 })()
-
-// 语言内容，写成函数有利于插入可变内容
-// 同类的尽量保持开头单词一致有利于参数提示
-export const i18nMessages = {
-  pageHome: {
-    'en-US': () => 'home',
-    'zh-CN': () => '首页',
-    'zh-TW': () => '首页',
-  },
-  pageChat: {
-    'en-US': () => 'chat',
-    'zh-CN': () => '全局聊天',
-    'zh-TW': () => '全局聊天',
-  },
-  pageFile: {
-    'en-US': () => 'file',
-    'zh-CN': () => '文件',
-    'zh-TW': () => '文件',
-  },
-  pageSetting: {
-    'en-US': () => 'setting',
-    'zh-CN': () => '设置',
-    'zh-TW': () => '设置',
-  },
-  // as const 使其有完整的字面量类型推导
-  // satisfies 确保其每一项不会缺少
-  // 还需要确保每组函数类型是一样的，这个只能自己注意了
-} as const satisfies Record<string, Record<I18nLocaleType, unknown>>
-
-// 通过类型体操，获取i18nMessages键的类型
-export type I18nMessagesKeyType = keyof typeof i18nMessages
-
-// 将在 src\stores\i18n.ts 使用
-// 页面中再使用 i18nStore.t 获取当前语言的内容
