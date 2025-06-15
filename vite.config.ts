@@ -15,7 +15,7 @@ import { unheadVueComposablesImports } from '@unhead/vue'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
       imports: [

@@ -3,25 +3,25 @@
 
 // 将默认值独立出来是因为这样才能有tailwind提示
 // 默认居中
-const defaultColContainerStyle = 'justify-center'
+const defaultColContainerTwcss = 'justify-center'
 // 默认全宽度
-const defaultCol1Style = 'flex-1'
+const defaultCol1Twcss = 'flex-1'
 withDefaults(
   defineProps<{
-    colContainerStyle: string
-    col1Style: string
+    colContainerTwcss: string
+    col1Twcss: string
   }>(),
   {
-    colContainerStyle: defaultColContainerStyle,
-    col1Style: defaultCol1Style,
+    colContainerTwcss: defaultColContainerTwcss,
+    col1Twcss: defaultCol1Twcss,
   }
 )
 </script>
 
 <template>
   <div class="container-col1">
-    <div class="flex" :class="colContainerStyle">
-      <div :class="col1Style">
+    <div class="flex" :class="colContainerTwcss">
+      <div :class="col1Twcss">
         <slot></slot>
       </div>
     </div>

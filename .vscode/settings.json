@@ -25,7 +25,7 @@
     "className",
     "ngClass",
     "class:list",
-    // 让含有style的变量可以得到tailwind提示
-    ".*[Ss]tyle.*", 
+    // 让含有twcss的变量可以得到tailwind提示
+    ".*[tT][wW][cC][sS][sS].*",
   ],
 }

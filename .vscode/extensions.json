@@ -6,6 +6,6 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "formulahendry.auto-rename-tag",
-    "wmaurer.change-case"   
+    "wmaurer.change-case",
   ]
 }

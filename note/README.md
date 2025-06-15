@@ -40,3 +40,9 @@ dist/assets/index-BoIN3V3K.js       315.30 kB │ gzip: 115.58 kB
 pnpm i -D naive-ui
 
 也配置了暗黑模式与国际化
+
+## 路由与导航栏
+
+## 导航栏响应式
+
+## 登录页
